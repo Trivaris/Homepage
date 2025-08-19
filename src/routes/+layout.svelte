@@ -1,8 +1,12 @@
 <script lang="ts">
+	import { injectAnalytics } from '@vercel/analytics/sveltekit'
+	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import favicon from '$lib/assets/favicon.svg';
 	import logo from '$lib/assets/nix.svg';
 
 	let { children } = $props();
+
+	injectSpeedInsights();
 </script>
 
 <svelte:head>
