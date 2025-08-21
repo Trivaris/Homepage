@@ -1,16 +1,16 @@
 <script lang="ts">
-	import logo from '$lib/assets/nix.svg';
+	import Logo from '$lib/assets/logos/Logo.svelte';
 </script>
 
 <nav class = "navbar">
 	<div class = "navbar-left">
-		<img class="logo navitem" src={logo} alt="Trivaris">
+		<Logo />
 		<a class="navitem navlink" href="https://github.com/trivaris/">Github</a>
 		<a class="navitem navlink" href="https://console.hetzner.com/projects/">Cloud</a>
 		<a class="navitem navlink" href="https://dash.cloudflare.com/">DNS</a>
 	</div>
 	<div class="navbar-right">
-		<a class="navitem navbutton" href="/login">Admin</a>
+		<button class="navitem navbutton">Admin</button>
 	</div>
 </nav>
 
@@ -55,23 +55,20 @@
 
 	.navbutton {
 		opacity: 0;
-		color: black;
 		transition: opacity 0.3s ease;
+		font-weight: 600;
+		background-color: hsla(0,0%,90%,1);
+		color: black;
+		border-radius: 10px;
+		border-style: hidden;
 	}
 
 	.navbar-right:hover .navbutton {
 		opacity: 1;
 		font-weight: 600;
-		background: hsla(0,0%,99%,1);
+		background-color: hsla(0,0%,90%,1);
 		color: black;
-		border-style: solid;
-		border-color: hsla(0,0%,80%,1);
-		border-width: 1px;
-		border-radius: 6px;
+		border-radius: 10px;
+		border-style: hidden;
 	}
-
-	.logo {
-		width: 2rem;
-	}
-	
 </style>
