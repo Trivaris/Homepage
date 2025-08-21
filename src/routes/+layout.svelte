@@ -1,10 +1,9 @@
 <script lang="ts">
-  import Navbar from './Navbar.svelte';
+	import Navbar from './Navbar.svelte';
 
 	import { injectAnalytics } from '@vercel/analytics/sveltekit'
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import favicon from '$lib/assets/favicon.svg';
-	import logo from '$lib/assets/nix.svg';
 
 	let { children } = $props();
 
@@ -16,14 +15,13 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<header>
-	<Navbar />
-</header>
-
+<Navbar />
 {@render children?.()}
-
 <style>
-	* {
-		background-color: hsla(0,0%,98%,1);
+	:root {
+		--accent-color: hsla(88,100%,80%,1);
+		--background-color: hsla(88,100%,96%,1);
+		background-color: var(--background-color);
+		font-family: "Noto Sans", sans-serif;
 	}
 </style>

@@ -10,30 +10,27 @@
 		<a class="navitem navlink" href="https://dash.cloudflare.com/">DNS</a>
 	</div>
 	<div class="navbar-right">
-		<a class="navitem navbutton" href="/login">Log In</a>
-		<a class="navitem navbutton" href="/singup">Sign Up</a>
+		<a class="navitem navbutton" href="/login">Admin</a>
 	</div>
 </nav>
-<hr />
-
 
 <style>
 	.navbar {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 0.5rem 8rem;
+		padding: 2% 20%;
 	}
 
 	.navbar-left {
 		display: flex;
-		justify-content: space-evenly;
+		justify-content: space-between;
 		align-items: center;
 	}
 
 	.navitem {
-		font-family: "Noto Sans", sans-serif;
-		font-size: small;
+		font-size: large;
+		font-weight: bold;
 		margin: 0rem 1rem;
 		padding: 0.3rem 0.8rem;
 		text-decoration: none;
@@ -49,7 +46,21 @@
 		color: black;
 	}
 
+	.navbar-right {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		position: relative;
+	}
+
 	.navbutton {
+		opacity: 0;
+		color: black;
+		transition: opacity 0.3s ease;
+	}
+
+	.navbar-right:hover .navbutton {
+		opacity: 1;
 		font-weight: 600;
 		background: hsla(0,0%,99%,1);
 		color: black;
@@ -63,9 +74,4 @@
 		width: 2rem;
 	}
 	
-	hr {
-		border: none;
-		height: 0.5px;
-		background: darkgray;
-	}
 </style>
