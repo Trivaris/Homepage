@@ -24,7 +24,7 @@
 <style>
     .main {
         display: flex;
-        margin: 0% 20%;
+        margin: 0% var(--border-padding);
     }
     
     .heroImage {

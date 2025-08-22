@@ -19,7 +19,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 2% 20%;
+		padding: 2% var(--border-padding);
 	}
 
 	.navbar-left {
@@ -42,7 +42,7 @@
 	}
 
 	.navlink:hover {
-		background-color: hsla(0,0%,90%,1);
+		background-color: var(--secondary-color);
 		color: black;
 	}
 
@@ -57,7 +57,7 @@
 		opacity: 0;
 		transition: opacity 0.3s ease;
 		font-weight: 600;
-		background-color: hsla(0,0%,90%,1);
+		background-color: var(--secondary-color);
 		color: black;
 		border-radius: 10px;
 		border-style: hidden;
@@ -66,7 +66,7 @@
 	.navbar-right:hover .navbutton {
 		opacity: 1;
 		font-weight: 600;
-		background-color: hsla(0,0%,90%,1);
+		background-color: var(--secondary-color);
 		color: black;
 		border-radius: 10px;
 		border-style: hidden;

@@ -20,8 +20,10 @@
 
 <style>
 	:root {
-		--accent-color: hsla(88,100%,80%,1);
+		--primary-color: hsla(88,100%,30%,1);
+		--secondary-color: hsla(88,100%,80%,1);
 		--background-color: hsla(88,100%,96%,1);
+		--border-padding: 20%;
 		background-color: var(--background-color);
 		font-family: "Noto Sans", sans-serif;
 	}

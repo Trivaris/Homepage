@@ -1,12 +1,12 @@
 <style>
     .icon {
-        color: green;
+        color: var(--secondary-color);
         width: 1.5rem;
         margin: 0.5rem;
     }
 
     .icon:hover {
-        color: var(--accent-color);
+        color: var(--primary-color);
     }
 </style>
 
