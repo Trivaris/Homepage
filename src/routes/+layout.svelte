@@ -13,6 +13,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<title>Trivaris' Homepage</title>
 </svelte:head>
 
 <Navbar />
