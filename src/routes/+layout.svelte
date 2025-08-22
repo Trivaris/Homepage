@@ -17,6 +17,7 @@
 
 <Navbar />
 {@render children?.()}
+
 <style>
 	:root {
 		--accent-color: hsla(88,100%,80%,1);
