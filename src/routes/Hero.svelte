@@ -42,7 +42,7 @@
     }
 
     .introTextAccent {
-        background-color: var(--accent-color);
+        background-color: var(--secondary-color);
         width: 3rem;
         height: 0.5rem;
         margin-bottom: -0.5rem;

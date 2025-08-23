@@ -4,9 +4,9 @@
 
 <nav class = "navbar">
 	<div class = "navbar-left">
-		<Logo />
-		<a class="navitem navlink" href="https://github.com/trivaris/">Github</a>
-		<a class="navitem navlink" href="https://console.hetzner.com/projects/">Cloud</a>
+		<a href="/"><Logo /></a>
+		<a class="navitem navlink" href="/comments">Database Testing</a>
+		<a class="navitem navlink" href="/tictactoe">Tic Tac Toe</a>
 		<a class="navitem navlink" href="https://dash.cloudflare.com/">DNS</a>
 	</div>
 	<div class="navbar-right">

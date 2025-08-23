@@ -25,7 +25,8 @@
 		--secondary-color: hsla(88,100%,80%,1);
 		--background-color: hsla(88,100%,96%,1);
 		--border-padding: 20%;
+		--font: "Noto Sans", sans-serif;
 		background-color: var(--background-color);
-		font-family: "Noto Sans", sans-serif;
+		font-family: var(--font);
 	}
 </style>

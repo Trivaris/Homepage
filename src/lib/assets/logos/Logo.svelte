@@ -4,6 +4,9 @@
         width: 2.5rem;
         margin: 0.5rem;
     }
+    .icon:hover {
+        color: var(--secondary-color)
+    }
 </style>
 
 <svg class="icon" viewBox="0 0 732 438" fill="none" xmlns="http://www.w3.org/2000/svg">
