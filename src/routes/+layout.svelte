@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Navbar from './Navbar.svelte';
 
-	import { injectAnalytics } from '@vercel/analytics/sveltekit'
+	import { injectAnalytics } from '@vercel/analytics/sveltekit';
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import favicon from '$lib/assets/favicon.svg';
 
@@ -21,11 +21,11 @@
 
 <style>
 	:root {
-		--primary-color: hsla(88,100%,30%,1);
-		--secondary-color: hsla(88,100%,80%,1);
-		--background-color: hsla(88,100%,96%,1);
-		--border-padding: 20%;
-		--font: "Noto Sans", sans-serif;
+		--primary-color: hsla(88, 100%, 30%, 1);
+		--secondary-color: hsla(88, 100%, 80%, 1);
+		--background-color: hsla(88, 100%, 96%, 1);
+		--border-padding: clamp(1rem, 20%, 8rem);
+		--font: 'Noto Sans', sans-serif;
 		background-color: var(--background-color);
 		font-family: var(--font);
 	}

@@ -1,38 +1,40 @@
 <script lang="ts">
 	import Logo from '$lib/assets/logos/Logo.svelte';
+	let menuOpen = false;
 </script>
 
-<nav class = "navbar">
-	<div class = "navbar-left">
-		<a href="/"><Logo /></a>
+<nav class="navbar">
+	<a class="logo" href="/"><Logo /></a>
+	<button class="hamburger" aria-label="Toggle navigation" on:click={() => (menuOpen = !menuOpen)}>
+		<span></span>
+		<span></span>
+		<span></span>
+	</button>
+	<div class="links" class:open={menuOpen}>
 		<a class="navitem navlink" href="/comments">Database Testing</a>
 		<a class="navitem navlink" href="/tictactoe">Tic Tac Toe</a>
 		<a class="navitem navlink" href="https://dash.cloudflare.com/">DNS</a>
-	</div>
-	<div class="navbar-right">
-		<button class="navitem navbutton">Admin</button>
 	</div>
 </nav>
 
 <style>
 	.navbar {
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
-		padding: 2% var(--border-padding);
+		padding: clamp(0.5rem, 2%, 1rem) var(--border-padding);
 	}
 
-	.navbar-left {
+	.links {
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
+		margin-left: auto;
 	}
 
 	.navitem {
-		font-size: large;
+		font-size: clamp(1rem, 1.5vw, 1.2rem);
 		font-weight: bold;
-		margin: 0rem 1rem;
-		padding: 0.3rem 0.8rem;
+		margin: 0 clamp(0.5rem, 2vw, 1rem);
+		padding: clamp(0.2rem, 1vw, 0.3rem) clamp(0.5rem, 1vw, 0.8rem);
 		text-decoration: none;
 	}
 
@@ -46,29 +48,43 @@
 		color: black;
 	}
 
-	.navbar-right {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		position: relative;
+	.hamburger {
+		display: none;
+		flex-direction: column;
+		justify-content: center;
+		gap: 0.25rem;
+		margin-left: auto;
+		background: transparent;
+		border: none;
+		cursor: pointer;
 	}
 
-	.navbutton {
-		opacity: 0;
-		transition: opacity 0.3s ease;
-		font-weight: 600;
-		background-color: var(--secondary-color);
-		color: black;
-		border-radius: 10px;
-		border-style: hidden;
+	.hamburger span {
+		width: 1.5rem;
+		height: 0.15rem;
+		background-color: currentColor;
+		border-radius: 2px;
 	}
 
-	.navbar-right:hover .navbutton {
-		opacity: 1;
-		font-weight: 600;
-		background-color: var(--secondary-color);
-		color: black;
-		border-radius: 10px;
-		border-style: hidden;
+	@media (max-width: 40rem) {
+		.links {
+			display: none;
+			flex-direction: column;
+			width: 100%;
+			padding: clamp(0.5rem, 2vw, 1rem) var(--border-padding);
+			background-color: var(--background-color);
+		}
+
+		.links.open {
+			display: flex;
+		}
+
+		.hamburger {
+			display: flex;
+		}
+
+		.navbar {
+			flex-wrap: wrap;
+		}
 	}
 </style>
