@@ -19,6 +19,18 @@
 <svelte:head>
 	<link rel="icon" href={favicon} />
 	<title>Trivaris' Homepage</title>
+	<meta name="description" content="Comp-Sci Student | Softwareentwickler (Kotlin, Svelte, NixOS)" />
+
+	<meta property="og:title" content="Trivaris – Homepage" />
+	<meta property="og:description" content="Comp-Sci Student | Softwareentwickler (Kotlin, Svelte, NixOS)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://trivaris.org/" />
+	<meta property="og:image" content="https://trivaris.org/preview.jpg" />
+
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Trivaris – Homepage" />
+	<meta name="twitter:description" content="Comp-Sci Student | Softwareentwickler (Kotlin, Svelte, NixOS)" />
+	<meta name="twitter:image" content="https://trivaris.org/preview.jpg" />
 </svelte:head>
 
 <Navbar {links}/>
