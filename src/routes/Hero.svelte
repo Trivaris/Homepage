@@ -1,22 +1,24 @@
 <script lang="ts">
-    import meImage from '$lib/assets/me.jpeg';
     import Github from '$lib/assets/logos/Github.svelte';
     import LinkedIn from '$lib/assets/logos/LinkedIn.svelte';
     import Instagram from '$lib/assets/logos/Instagram.svelte';
+
+    let { name, intro, image, links } = $props();
+
 </script>
 
 <div class="main">
-    <img class="heroImage" src={meImage} alt="me">
-    <div class="right">
+    <img class="heroImage" src={image} alt={name}>
+    <div class="heroText">
         <div class="intro">
             <div class="introTextAccent"></div>
-            <h1 class="introText">I'm Trivaris</h1>
-            <p>Comp-Sci Student / Dr. Pepper Lover / Nerd</p>
+            <h1 class="introText">I'm {name}</h1>
+            <p>{intro}</p>
         </div>
         <div class="links">
-            <a href="https://github.com/trivaris/"><Github /></a>
-            <a href="https://www.linkedin.com/in/torben-joneit-094070380/"><LinkedIn /></a>
-            <a href="https://www.instagram.com/trbn.jnt/"><Instagram /></a>
+            <a href={links.github}><Github /></a>
+            <a href={links.linkedIn}><LinkedIn /></a>
+            <a href={links.instagram}><Instagram /></a>
         </div>
     </div>
 </div>
@@ -24,7 +26,7 @@
 <style>
     .main {
         display: flex;
-        margin: 0% var(--border-padding);
+        margin: 0% 5% var(--border-padding) var(--border-padding);
     }
     
     .heroImage {
@@ -49,7 +51,7 @@
         padding-bottom: 0px;
     }
 
-    .right {
+    .heroText {
         display: flex;
         justify-content: space-between;
         flex-direction: column;
