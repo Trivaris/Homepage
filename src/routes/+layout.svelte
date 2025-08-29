@@ -22,9 +22,9 @@
 <style>
 	:root {
 		--primary-color: hsla(88,100%,30%,1);
-		--secondary-color: hsla(88,100%,80%,1);
+		--secondary-color: rgb(136, 255, 0);
 		--background-color: hsla(88,100%,96%,1);
-		--border-padding: 20%;
+		--border-padding: 0.5rem;
 		--font: "Noto Sans", sans-serif;
 		background-color: var(--background-color);
 		font-family: var(--font);

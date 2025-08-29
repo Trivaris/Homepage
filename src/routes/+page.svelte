@@ -32,6 +32,8 @@
     <Hero
         {...heroInfos.trivaris}
     />
+</div>
+<div class="hero">
     <Hero
         {...heroInfos.alireza}
     />
@@ -39,9 +41,9 @@
 
 <style>
     .hero {
-        display: flex;
-        align-content: center;
-        flex-direction: column;
         margin-top: 5%;
+        margin-bottom: 50%;
+        margin-right: var(--border-padding);
+        margin-left: var(--border-padding);
     }
 </style>

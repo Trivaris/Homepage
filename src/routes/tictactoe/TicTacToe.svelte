@@ -1,62 +1,69 @@
 <script lang="ts">
     const size = 3;
 
-    const emptyBoard = Array.from({ length: size }, () => Array.from({length: size}, () => " "))
-    let board = $state(emptyBoard);
-    let curPlayer = $state("X");
-    let status = $derived(`Current Player: ${curPlayer}`);
+    type Field = 'X' | 'O' | ' '
+    type Winner = Field | 'Tie'
+    type Player = Exclude<Field, ' '>
+
+
+    const emptyBoard: Field[][] = Array.from({ length: size },
+        () => Array.from({length: size}, () => ' ' )
+    )
+    let board = $state<Field[][]>(emptyBoard);
+
+    const nextPlayer: Record<Player, Player> = {
+        X: 'O',
+        O: 'X',
+    };
+    let curPlayer = $state<Exclude<Field, ' '>>('X');
+
+    let status = $derived(() => {  
+        const winner = getWinner()
+        switch (winner) {
+            case ' ': return `It's ${curPlayer}'s Turn!`
+            case 'Tie': return "It's a Tie!"
+            default: return `${winner} won!`
+        }
+    })
 
     function chooseField(column: number, row: number) {
         var winner = getWinner()
-        var gameOver = winner !== "";
+        var gameOver = winner !== ' ';
+        
         if (gameOver) resetBoard()
-        if (board[column][row] === " " || gameOver) {
+        if (board[column][row] === ' ' || gameOver) {
             board[column][row] = curPlayer;
             updateBoard()
-            curPlayer = (curPlayer === "X") ? "O" : "X";
+            curPlayer = nextPlayer[curPlayer];
         }
-
-        winner = getWinner()
-        if (winner === "" ) return
-        curPlayer = "X";
-        status = winner === "tie" ? "Tie!" : `${winner} won!` 
+        if (getWinner() !== ' ' ) curPlayer = 'X';
     }
 
-    function resetBoard(): void { board = emptyBoard }
-    function updateBoard(): void { board = [...board] }
-
-    function getWinner(): string {
+    function getWinner(): Winner {
         for (let combination of getCombinations())
             if (allEqual(combination))
                 return combination[0]
         if (board.every((column) => noneEmpty(column)))
-            return "tie"
-        return ""
+            return 'Tie'
+        return ' '
     }
 
-    function noneEmpty(arr: string[]): boolean {
-        return arr.every((value) => value !== " ");
-    }
+    const resetBoard  = (): void => { board = emptyBoard }
+    const updateBoard = (): void => { board = [...board] }
+    const noneEmpty = (arr: Field[]): boolean => arr.every((value) => value !== ' ');
+    const allEqual  = (arr: Field[]): boolean => arr.length > 0 && arr[0] !== ' ' && arr.every((v) => v === arr[0]);
 
-    function allEqual(arr: string[]): boolean {
-        if (arr.length === 0) return true;
-        const first = arr[0];
-        if (first === " ") return false;
-        return arr.every((value) => value === first);
-    }
+    const getCombinations = (): Field[][] => {
+        const rows = board[0].map((_, row) => board.map(col => col[row]));
+        const columns = board.map(col => [...col]);
+        const diags = [ board.map((col, i) => col[i]), board.map((col, i) => col[size - 1 - i])]
 
-    function getCombinations(): string[][] {
-        const rows = Array.from({length: size}, (_,row) => Array.from({length: size}, (_,column) => board[column][row]));
-        const columns = Array.from({length: size}, (_,column) => Array.from({length: size}, (_,row) => board[column][row]));
-        const diagTopLeft = Array.from({length: size}, (_,idx) => board[idx][idx]);
-        const diagTopRight = Array.from({length: size}, (_,idx) => board[size-1-idx][idx]);
-
-        return [...rows, ...columns, diagTopLeft, diagTopRight]
+        return [...rows, ...columns, ...diags]
     }
 </script>
 
 <div class="main">
-    <h1>{status}</h1>
+    <h1>{status()}</h1>
     <div class="board" style="--size: {size * size}rem">
         {#each board as column, columnIdx}
         <div class="column">

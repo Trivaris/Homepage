@@ -7,59 +7,58 @@
 
 </script>
 
-<div class="main">
-    <img class="heroImage" src={image} alt={name}>
-    <div class="heroText">
-        <div class="intro">
-            <div class="introTextAccent"></div>
-            <h1 class="introText">I'm {name}</h1>
-            <p>{intro}</p>
-        </div>
-        <div class="links">
-            <a href={links.github}><Github /></a>
-            <a href={links.linkedIn}><LinkedIn /></a>
-            <a href={links.instagram}><Instagram /></a>
-        </div>
+<div class="hero">
+    <div class="introDiv">
+        <div class="introAccent"></div>
+        <h1 class="intro">I'm {name}</h1>
+        <p class="introText">{intro}</p>
     </div>
+    <div class="links">
+        <a href={links.github}><Github /></a>
+        <a href={links.linkedIn}><LinkedIn /></a>
+        <a href={links.instagram}><Instagram /></a>
+    </div>
+    <img class="image" src={image} alt={name}>
 </div>
 
 <style>
-    .main {
+    .hero {
         display: flex;
-        margin: 0% 5% var(--border-padding) var(--border-padding);
+        flex-direction: column;
+        align-items: right;
     }
     
-    .heroImage {
-        width: 35%;
+    .image {
+        max-width: 100%;
+        height: auto;
+        display: block;
         border-radius: 20px;
-        margin-left: 2%;
-        margin-right: 7%;
     }
-    
-    .introText {
+
+    .links {
+        display: flex;
+        margin: 5%;
+    }
+
+    .introDiv {
+        display: flex;
+        flex-direction: column;
+        margin: 5%;
+    }
+
+    .intro {
         margin-top: 0px;
         padding-top: 0px;
         font-size: 3rem;
-        font-weight: 500;
+        font-weight: bold;
     }
 
-    .introTextAccent {
+    .introAccent {
         background-color: var(--secondary-color);
         width: 3rem;
         height: 0.5rem;
         margin-bottom: -0.5rem;
         padding-bottom: 0px;
-    }
-
-    .heroText {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-    }
-
-    .links {
-        display: flex;
-        flex-direction: row;
     }
 
 </style>
