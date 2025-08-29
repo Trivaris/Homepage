@@ -7,6 +7,11 @@
 
 	let { children } = $props();
 
+	const links = [
+		{ rel: "/tictactoe", name: "Tic Tac Toe" },
+		{ rel: "/comments", name: "DB Testing" }
+	]
+
 	injectSpeedInsights();
 	injectAnalytics();
 </script>
@@ -16,7 +21,7 @@
 	<title>Trivaris' Homepage</title>
 </svelte:head>
 
-<Navbar />
+<Navbar {links}/>
 {@render children?.()}
 
 <style>

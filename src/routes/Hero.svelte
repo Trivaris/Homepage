@@ -1,7 +1,7 @@
 <script lang="ts">
-    import Github from '$lib/assets/logos/Github.svelte';
-    import LinkedIn from '$lib/assets/logos/LinkedIn.svelte';
-    import Instagram from '$lib/assets/logos/Instagram.svelte';
+    import Github from '$lib/logos/Github.svelte';
+    import LinkedIn from '$lib/logos/LinkedIn.svelte';
+    import Instagram from '$lib/logos/Instagram.svelte';
 
     let { name, intro, image, links } = $props();
 
