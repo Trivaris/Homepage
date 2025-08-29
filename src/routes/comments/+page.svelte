@@ -12,6 +12,6 @@
         display: flex;
         align-content: center;
         flex-direction: column;
-        margin: 2% var(--border-padding);
+        margin: 2% var(--border-margin);
     }
 </style>

@@ -12,11 +12,11 @@
         <div class="introAccent"></div>
         <h1 class="intro">I'm {name}</h1>
         <p class="introText">{intro}</p>
-    </div>
-    <div class="links">
-        <a href={links.github}><Github /></a>
-        <a href={links.linkedIn}><LinkedIn /></a>
-        <a href={links.instagram}><Instagram /></a>
+        <div class="links">
+            <a href={links.github}><Github /></a>
+            <a href={links.linkedIn}><LinkedIn /></a>
+            <a href={links.instagram}><Instagram /></a>
+        </div>
     </div>
     <img class="image" src={image} alt={name}>
 </div>
@@ -37,18 +37,20 @@
 
     .links {
         display: flex;
-        margin: 5%;
+        justify-content: left;
     }
 
     .introDiv {
         display: flex;
         flex-direction: column;
+        padding: 5%;
         margin: 5%;
     }
 
     .intro {
-        margin-top: 0px;
-        padding-top: 0px;
+        margin-top: 0%;
+        margin-bottom: 1%;
+        padding-top: 0%;
         font-size: 3rem;
         font-weight: bold;
     }
@@ -60,5 +62,27 @@
         margin-bottom: -0.5rem;
         padding-bottom: 0px;
     }
+
+    @media (min-width: 768px) {
+        .hero {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin: 5%;
+        }
+
+        .introDiv {
+            flex: 1;
+            align-items: center;
+            border: solid var(--primary-color);
+            border-radius: 1rem;
+        }
+        
+        .image {
+            order: -1;
+            max-width: 30%;
+        }
+    }
+
 
 </style>

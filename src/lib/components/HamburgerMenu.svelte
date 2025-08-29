@@ -1,20 +1,32 @@
 <script lang="ts">
+	import { afterNavigate } from '$app/navigation';
+    import { clickOutside } from '$lib/actions/clickOutside'
+
     let { links } = $props();
     let open = $state(false);
+
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') open = false; };
+	afterNavigate(() => (open = false));
 </script>
 
-<div class="menu">
-    <button class="hamburger" onclick={() => (open = !open)} aria-label="Toggle Menu">
-        <div class="patty"></div>
-        <div class="patty"></div>
-        <div class="patty"></div>
-    </button>
+<div class="menu" use:clickOutside onoutclick={() => (open = false)}>
+  <button
+    class="hamburger"
+    onclick={() => (open = !open)}
+    onkeydown={onKey}
+    aria-expanded={open}
+    aria-label="Toggle Menu"
+  >
+    <div class="patty"></div>
+    <div class="patty"></div>
+    <div class="patty"></div>
+  </button>
 
-    <div class="items {open ? 'show' : ''}">
-        {#each links as link}
-            <a class="navitem" href={link.rel}>{link.name}</a>			
-        {/each}
-    </div>
+  <div class="items {open ? 'show' : ''}">
+    {#each links as link}
+      <a class="navitem" href={link.rel}>{link.name}</a>
+    {/each}
+  </div>
 </div>
 
 <style>

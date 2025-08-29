@@ -29,7 +29,7 @@
 		--primary-color: hsla(88,100%,30%,1);
 		--secondary-color: rgb(136, 255, 0);
 		--background-color: hsla(88,100%,96%,1);
-		--border-padding: 0.5rem;
+		--border-margin: clamp(0.5rem, 2vw, 3rem);
 		--font: "Noto Sans", sans-serif;
 		background-color: var(--background-color);
 		font-family: var(--font);

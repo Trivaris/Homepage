@@ -3,4 +3,11 @@ declare global {
 	}
 }
 
+declare module "svelte/elements" {
+  export interface DOMAttributes {
+	onoutclick?: (event: CustomEvent<MouseEvent>) => void;
+  }
+}
+
+
 export {};

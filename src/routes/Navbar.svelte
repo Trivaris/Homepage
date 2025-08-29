@@ -8,25 +8,26 @@
 <nav class = "navbar">
 	<a href="/"><Logo /></a>
 	<div class="hamburger"><HamburgerMenu {links}/></div>
-	{#each links as link}
-		<a class="navitem" href="/{link.rel}">{link.name}</a>			
-	{/each}
-	<a class="navitem" href="/admin">Admin</a>
+	<div class="navitems">
+		{#each links as link}
+			<a class="navitem" href="{link.rel}">{link.name}</a>			
+		{/each}
+		<a class="navitem" href="/admin">Admin</a>
+	</div>
 </nav>
 
 <style>
+	.navitems { display: none; }
+
 	.navbar {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 2% var(--border-padding);
+		padding: 2% var(--border-margin);
 	}
+
 
 	.navitem {
-		display: none;
-	}
-
-	/* .navitem {
 		font-size: large;
 		font-weight: bold;
 		margin: 0rem 1rem;
@@ -36,9 +37,17 @@
 		color: gray;
 	}
 
-	.navitem:hover {
-		background-color: var(--secondary-color);
-		color: black;
-	} */
+	@media (min-width: 768px) {
+		.hamburger { display: none; }
+	
+		.navitems {
+			display: flex;
+			justify-content: left;
+		}
 
+		.navitem:hover {
+			background-color: var(--secondary-color);
+			color: black;
+		}
+	}
 </style>
