@@ -49,7 +49,7 @@
     }
 
     .hamburger:hover .patty {
-        background-color: var(--primary-color);
+      background-color: var(--primary-color);
     }
 
     .patty {

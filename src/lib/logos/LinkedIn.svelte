@@ -3,9 +3,11 @@
         color: var(--secondary-color);
         width: 1.5rem;
         margin: 0.5rem;
+        transition: 150ms ease;  
     }
 
     .icon:hover {
+        transform: scale(1.5);
         color: var(--primary-color);
     }
 
