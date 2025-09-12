@@ -1,9 +1,9 @@
 <script lang="ts">
     const size = 3;
 
-    type Field = 'X' | 'O' | ' '
+    type Player = 'X' | 'O'
+    type Field =  Player | ' '
     type Winner = Field | 'Tie'
-    type Player = Exclude<Field, ' '>
 
 
     const emptyBoard: Field[][] = Array.from({ length: size },
