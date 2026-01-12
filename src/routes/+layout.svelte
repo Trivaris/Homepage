@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Navbar from './Navbar.svelte';
 
-	import { injectAnalytics } from '@vercel/analytics/sveltekit'
+	import { injectAnalytics } from '@vercel/analytics/sveltekit';
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import favicon from '$lib/assets/favicon.svg';
 
